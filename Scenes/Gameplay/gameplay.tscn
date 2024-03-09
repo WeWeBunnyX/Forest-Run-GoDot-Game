@@ -1,8 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cilsqgvhxddb0"]
+[gd_scene load_steps=16 format=3 uid="uid://cilsqgvhxddb0"]
 
 [ext_resource type="Texture2D" uid="uid://chlul0ayi4d" path="res://Scenes/Gameplay/tileset/tileset.png" id="1_dpxjt"]
 [ext_resource type="Texture2D" uid="uid://c6nc3vpk8vtbo" path="res://Scenes/Gameplay/background.png" id="2_gsopt"]
 [ext_resource type="Texture2D" uid="uid://w7etryg01unm" path="res://Scenes/Gameplay/middleground.png" id="3_mtida"]
+[ext_resource type="Texture2D" uid="uid://d3353cwlet6jt" path="res://Scenes/Gameplay/player-idle-1.png" id="4_hsxac"]
+[ext_resource type="Texture2D" uid="uid://dauv23ce3uie3" path="res://Scenes/Gameplay/player-idle-2.png" id="5_6abqa"]
+[ext_resource type="Texture2D" uid="uid://b34x2uw4gauox" path="res://Scenes/Gameplay/player-idle-3.png" id="6_tnld7"]
+[ext_resource type="Texture2D" uid="uid://b2vx0s2v7xnne" path="res://Scenes/Gameplay/player-idle-4.png" id="7_wprvh"]
+[ext_resource type="Texture2D" uid="uid://l3fns4eqqvcx" path="res://Scenes/Gameplay/player-idle-5.png" id="8_xir5h"]
+[ext_resource type="Texture2D" uid="uid://7tjgwnb24ahn" path="res://Scenes/Gameplay/player-idle-6.png" id="9_lu3ct"]
+[ext_resource type="Texture2D" uid="uid://d1k83p3wy4f1k" path="res://Scenes/Gameplay/player-idle-7.png" id="10_17mnr"]
+[ext_resource type="Texture2D" uid="uid://byu2otoni3vge" path="res://Scenes/Gameplay/player-idle-8.png" id="11_cjlo0"]
+[ext_resource type="Texture2D" uid="uid://berphtdmbkxx4" path="res://Scenes/Gameplay/player-idle-9.png" id="12_20h5a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2jde"]
 texture = ExtResource("1_dpxjt")
@@ -119,6 +128,41 @@ texture = ExtResource("1_dpxjt")
 [sub_resource type="TileSet" id="TileSet_k3jq6"]
 sources/0 = SubResource("TileSetAtlasSource_m2jde")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_u3csg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hsxac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6abqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tnld7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wprvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xir5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lu3ct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_17mnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cjlo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_20h5a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="Gameplay" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -137,8 +181,8 @@ motion_mirroring = Vector2(19.2, 0)
 
 [node name="Parallax1" type="Sprite2D" parent="Background/Background"]
 texture_filter = 1
-position = Vector2(532.5, 294.5)
-scale = Vector2(5.50521, 2.57083)
+position = Vector2(533, 294.5)
+scale = Vector2(5.51042, 2.57083)
 texture = ExtResource("2_gsopt")
 
 [node name="MiddleGround" type="ParallaxLayer" parent="Background"]
@@ -150,3 +194,15 @@ texture_filter = 1
 position = Vector2(521.5, 294.5)
 scale = Vector2(2.71615, 2.57083)
 texture = ExtResource("3_mtida")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(51.625, 462)
+scale = Vector2(2.88514, 2.9375)
+sprite_frames = SubResource("SpriteFrames_u3csg")
+animation = &"idle"
+frame = 4
+frame_progress = 0.888058
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
