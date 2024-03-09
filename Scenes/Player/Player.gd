@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-const gravity = 980.0
+const gravity = 900.0
 enum State  { run , idle, jump , fall}
 var current_state
 func _ready():
@@ -28,6 +28,9 @@ func player_idle(delta):
 func player_falling(delta):
 	if !is_on_floor():
 		velocity.y = gravity*delta
+		
+func player_jump():
+	pass
 		
 		
 func player_run(delta):
