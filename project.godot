@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Forest Run"
-run/main_scene="res://Scenes/Gameplay/gameplay.tscn"
+run/main_scene="res://Scenes/Gameplay/world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 config/canvas_textures/default_texture_filter=1
